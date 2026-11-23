@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Medical Professional Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Medical Blue - Trust & Professionalism */
+    --primary: 210 88% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 88% 40%;
+    
+    /* Soft Medical Gray */
+    --secondary: 210 11% 96%;
+    --secondary-foreground: 215 25% 27%;
+    
+    /* Light Medical Background */
+    --muted: 210 11% 98%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Caring Accent */
+    --accent: 168 76% 42%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Medical Alert Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Success/Normal Results */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning/Attention */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --border: 210 11% 93%;
+    --input: 210 11% 93%;
+    --ring: 210 88% 45%;
+
+    --radius: 0.5rem;
+    
+    /* Medical Gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-calm: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)) 0%, hsl(142 76% 45%) 100%);
+    --gradient-alert: linear-gradient(135deg, hsl(var(--destructive)) 0%, hsl(0 84% 70%) 100%);
+    
+    /* Medical Shadows */
+    --shadow-medical: 0 4px 20px -2px hsl(var(--primary) / 0.15);
+    --shadow-soft: 0 2px 10px -2px hsl(215 25% 27% / 0.1);
+    --shadow-card: 0 1px 3px 0 hsl(215 25% 27% / 0.1), 0 1px 2px 0 hsl(215 25% 27% / 0.06);
+    
+    /* Transitions */
+    --transition-medical: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.2s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode medical colors */
+    --background: 215 28% 17%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 28% 17%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Maintain medical blue in dark mode */
+    --primary: 210 88% 56%;
+    --primary-foreground: 215 28% 17%;
+    --primary-hover: 210 88% 51%;
+
+    --secondary: 215 28% 25%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 28% 25%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 168 76% 42%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 28% 17%;
+
+    --border: 215 28% 25%;
+    --input: 215 28% 25%;
+    --ring: 210 88% 56%;
+
+    /* Dark mode gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-calm: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+
+    /* Adjusted shadows for dark mode */
+    --shadow-medical: 0 4px 20px -2px hsl(var(--primary) / 0.25);
+    --shadow-soft: 0 2px 10px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.2), 0 1px 2px 0 hsl(0 0% 0% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Medical gradient utilities */
+  .bg-gradient-medical {
+    background: var(--gradient-medical);
+  }
+  
+  .bg-gradient-calm {
+    background: var(--gradient-calm);
+  }
+  
+  .bg-gradient-success {
+    background: var(--gradient-success);
+  }
+  
+  .bg-gradient-alert {
+    background: var(--gradient-alert);
+  }
+  
+  /* Medical shadow utilities */
+  .shadow-medical {
+    box-shadow: var(--shadow-medical);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Medical transition utilities */
+  .transition-medical {
+    transition: var(--transition-medical);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  /* Medical hover effects */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medical);
+  }
+}
